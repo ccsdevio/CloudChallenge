@@ -1,0 +1,10 @@
+{
+  "operation": "create",
+  "tableName": "CCDynamoDB",
+  "payload": {
+    "Item": {
+      "id": "visitorCount4",
+      "currentCount": 420
+    }
+  }
+}
