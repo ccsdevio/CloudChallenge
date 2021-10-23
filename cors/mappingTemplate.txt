@@ -1,0 +1,13 @@
+#*
+This is a Velocity Template Language (https://velocity.apache.org/engine/devel/vtl-reference.html) snippet that sets CORS to allow access to any URL in the $domains array (see below). 
+
+To use in an aws API REST Gateway: go to the gateway -> Resources -> (REST method you want to change access to) -> Integration Response -> (click on the only active one, for 200) -> Mapping Templates -> application/json -> insert this snippet in the field. Original source was the second answer to this question: https://stackoverflow.com/questions/39628640/aws-api-gateway-cors-access-control-allow-origin-multiple-entries
+
+*#
+
+$input.json("$")
+#set($domains = ["https://www.example.com", "https://www.abcd.com"])
+#set($origin = $input.params("origin"))
+#if($domains.contains($origin))
+#set($context.responseOverride.header.Access-Control-Allow-Origin="$origin")
+#end

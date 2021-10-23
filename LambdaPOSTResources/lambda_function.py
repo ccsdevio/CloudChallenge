@@ -1,5 +1,5 @@
 import boto3
-import json
+import simplejson as json
 
 
 def update_value():
@@ -12,6 +12,8 @@ def update_value():
         "ExpressionAttributeValues": {":q": 1},
         "Key": {"id": "visitorCount"},
         "UpdateExpression": "SET currentCount = currentCount + :q"
+        "ReturnValues": "UPDATED_NEW"
+
     }
     response = table.update_item(**query)
     return response
