@@ -1,0 +1,7 @@
+Terraform v1.0.9
+on linux_amd64
+Configuring remote state backend...
+Initializing Terraform configuration...
+{"@level":"info","@message":"Terraform 1.0.9","@module":"terraform.ui","@timestamp":"2021-10-26T02:15:00.585657Z","terraform":"1.0.9","type":"version","ui":"0.1.0"}
+{"@level":"error","@message":"Error: Cycle: aws_s3_bucket.site, aws_s3_bucket_policy.public_read","@module":"terraform.ui","@timestamp":"2021-10-26T02:15:02.461293Z","diagnostic":{"severity":"error","summary":"Cycle: aws_s3_bucket.site, aws_s3_bucket_policy.public_read","detail":""},"type":"diagnostic"}
+

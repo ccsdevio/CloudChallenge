@@ -2,6 +2,16 @@
   Working on terraforming. We're going to learn by doing. May have to delete the whole folder and start over 😬
 */
 
+
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "3.32.0"
+    }
+  }
+}
+
 provider "aws" {
   region = var.aws_region
 }
@@ -46,3 +56,4 @@ resource "aws_s3_bucket_policy" "public_read" {
     ]
   })
 }
+      
