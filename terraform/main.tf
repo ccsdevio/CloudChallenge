@@ -18,6 +18,7 @@ resource "aws_iam_role" "iam_for_cloud_challenge_lambda" {
   name = "iam_for_cloud_challenge_lambda"
 
   assume_role_policy = <<EOF
+  {
       "Version": "2012-10-17",
     "Statement": [
         {
@@ -45,13 +46,13 @@ EOF
 }
 
 resource "aws_lambda_function" "cloud_challenge_lambda" {
-  filename        = "lambda_function_payload.zip"
+  filename        = "lambda_payload.zip"
   function_name   = "cloudChallengeLambda"
   role            = aws_iam_role.iam_for_cloud_challenge_lambda.arn
-  handler         = lambda_function.py
+  handler         = "lambda_function.py"
 
-  source_code_hash = filebase64sha256("lambda_function_payload.zip")
+  source_code_hash = filebase64sha256("lambda_payload.zip")
 
   runtime = "python3.9"
-  
+
 }
