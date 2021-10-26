@@ -19,26 +19,17 @@ resource "aws_iam_role" "iam_for_cloud_challenge_lambda" {
 
   assume_role_policy = <<EOF
   {
-      "Version": "2012-10-17",
+    "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "Stmt1428341300017",
-            "Action": [
-                "dynamodb:GetItem",
-                "dynamodb:UpdateItem"
-            ],
             "Effect": "Allow",
-            "Resource": "*"
-        },
-        {
-            "Sid": "",
-            "Resource": "*",
             "Action": [
+                "dynamodb:UpdateItem",
                 "logs:CreateLogGroup",
                 "logs:CreateLogStream",
                 "logs:PutLogEvents"
             ],
-            "Effect": "Allow"
+            "Resource": "*"
         }
     ]
 }
