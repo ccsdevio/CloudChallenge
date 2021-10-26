@@ -14,7 +14,7 @@ provider "aws" {
   region  = "us-east-1"
 }
 
-resource "aws_iam_role" "iam_for_cloud_challenge_lambda" {
+resource "aws_iam_role" "lambda_exec" {
   name = "iamForCloudChallengeLambda"
 
   assume_role_policy = <<EOF
@@ -39,7 +39,7 @@ EOF
 resource "aws_lambda_function" "cloud_challenge_lambda" {
   filename        = "lambda_payload.zip"
   function_name   = "cloudChallengeLambda"
-  role            = aws_iam_role.iam_for_cloud_challenge_lambda.arn
+  role            = aws_iam_role.lambda_exec.arn
   handler         = "lambda_function.py"
 
   source_code_hash = filebase64sha256("lambda_payload.zip")
