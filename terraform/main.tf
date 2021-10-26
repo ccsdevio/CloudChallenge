@@ -13,5 +13,3 @@ resource "aws_s3_bucket" "manach-bucket" {
     error_document  = "error.html"
   }
 }
-
-// Next, we'll set the 
