@@ -2,36 +2,24 @@
   Working on terraforming. We're going to learn by doing. May have to delete the whole folder and start over 😬
 */
 
-
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "3.32.0"
-    }
-  }
-}
-
 provider "aws" {
   region = var.aws_region
 }
 
-// Starting with the S3 bucket. Using https://learn.hashicorp.com/tutorials/terraform/cloudflare-static-website?in=terraform/aws
 resource "aws_s3_bucket" "site" {
-  bucket  = var.site_domain
-  acl     = "public-read"
-  policy  = aws_s3_bucket_policy.public_read
-  
+  bucket = var.site_domain
+  acl    = "public-read"
+
   website {
-    index_document  = "index.html"
-    error_document  = "error.html"
+    index_document = "index.html"
+    error_document = "index.html"
   }
 }
 
 resource "aws_s3_bucket" "www" {
-  bucket  = "www.${var.site_domain}"
-  acl     = "private"
-  policy  = ""
+  bucket = "www.${var.site_domain}"
+  acl    = "private"
+  policy = ""
 
   website {
     redirect_all_requests_to = "https://${var.site_domain}"
@@ -39,7 +27,7 @@ resource "aws_s3_bucket" "www" {
 }
 
 resource "aws_s3_bucket_policy" "public_read" {
-  bucket  = aws_s3_bucket.site.id 
+  bucket = aws_s3_bucket.site.id
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -48,12 +36,11 @@ resource "aws_s3_bucket_policy" "public_read" {
         Effect    = "Allow"
         Principal = "*"
         Action    = "s3:GetObject"
-        Resource  = [
+        Resource = [
           aws_s3_bucket.site.arn,
-          "${aws_s3_bucket.site.arn}/*"
+          "${aws_s3_bucket.site.arn}/*",
         ]
       },
     ]
   })
 }
-      
