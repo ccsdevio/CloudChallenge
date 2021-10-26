@@ -15,7 +15,7 @@ provider "aws" {
 }
 
 resource "aws_iam_role" "iam_for_cloud_challenge_lambda" {
-  name = "iam_for_cloud_challenge_lambda"
+  name = "iamForCloudChallengeLambda"
 
   assume_role_policy = <<EOF
   {
