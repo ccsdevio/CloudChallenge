@@ -6,12 +6,12 @@ def update_value():
     # Get the service resource.
     dynamodb = boto3.resource('dynamodb')
     # Set the table.
-    table = dynamodb.Table('CloudChallengeDev')
+    table = dynamodb.Table('CloudChallengeTable')
     # Build the query.
     query = {
         "ExpressionAttributeValues": {":q": 1},
         "Key": {"id": "visitorCount"},
-        "UpdateExpression": "SET currentCount = currentCount + :q"
+        "UpdateExpression": "SET currentCount = currentCount + :q",
         "ReturnValues": "UPDATED_NEW"
 
     }
