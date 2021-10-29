@@ -10,7 +10,8 @@ describe('Smoke test', () => {
   });
 
   it('Verifies that the text in counter changes upon POST response', () => {
-    cy.contains('This document has been viewed ');
+    // Note that the regex is necessary to test the exact string, otherwise it takes "contains" literally:
+    cy.contains(/^This document has been viewed $/);
   });
   // 2. Text switches upon POST response
 
