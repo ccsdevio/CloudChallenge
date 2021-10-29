@@ -15,7 +15,7 @@ window.addEventListener('load', () => {
       dataObj = data;
       const count = dataObj['body']['Attributes']['currentCount'];
       const counterDisplay = document.getElementById('counter');
-      counterDisplay.innerHTML = `Thisy document has been viewed ${count} times.`;
+      counterDisplay.innerHTML = `This document has been viewed ${count} times.`;
     } else {
       console.error(response.status);
     }
