@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "mocha": "^9.1.3"
+  },
+  "name": "cloudchallenge",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "cypress": "^8.7.0"
+  },
+  "scripts": {
+    "test": " ",
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ccsdevio/CloudChallenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ccsdevio/CloudChallenge/issues"
+  },
+  "homepage": "https://github.com/ccsdevio/CloudChallenge#readme",
+  "description": ""
+}

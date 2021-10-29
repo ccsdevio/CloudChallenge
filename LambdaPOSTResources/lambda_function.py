@@ -23,5 +23,5 @@ def lambda_handler(event, context):
     data = update_value()
     return {
         'statusCode': 200,
-        'body': json.dumps(data)
+        'body': eval(json.dumps(data))
     }
