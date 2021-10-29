@@ -1,5 +1,8 @@
 name: cypress-run
 on: [push]
+  paths: 
+  - 'index.html'
+  - 'scripts/**'
 jobs:
   check-bats-version:
     runs-on: ubuntu-20.04
