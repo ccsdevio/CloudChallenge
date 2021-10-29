@@ -1,9 +1,0 @@
-{
-  "operation": "read",
-  "tableName": "CCDynamoDB",
-  "payload": {
-    "Key": {
-      "id": "visitorCount"
-    }
-  }
-}

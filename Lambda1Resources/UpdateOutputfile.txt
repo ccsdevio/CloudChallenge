@@ -1,1 +1,0 @@
-{"errorMessage": "handler() takes 1 positional argument but 2 were given", "errorType": "TypeError", "stackTrace": ["  File \"/var/runtime/bootstrap.py\", line 127, in handle_event_request\n    response = request_handler(event, lambda_context)\n"]}
