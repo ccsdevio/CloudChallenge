@@ -3,6 +3,7 @@ on: [push]
   paths: 
   - 'index.html'
   - 'scripts/**'
+  - 'terraform/**'
 jobs:
   check-bats-version:
     runs-on: ubuntu-20.04
