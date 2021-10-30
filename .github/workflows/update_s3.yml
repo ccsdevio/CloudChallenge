@@ -11,20 +11,20 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-      uses: actions/checkout@v1
+    - name: Checkout
+    uses: actions/checkout@v1
 
-      - name: Set AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+    - name: Set AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
 
-      - name: Deploy updated files in "s3" folder to bucket
-        run: aws s3 sync ./s3/ s3://ccsportfolio.com --delete
+    - name: Deploy updated files in "s3" folder to bucket
+      run: aws s3 sync ./s3/ s3://ccsportfolio.com --delete
 
-      - name: Invalidate Cloudfront
-        run: aws cloudfront create-invalidation --distribution-id E307OQSSKM01JQ --paths "/*"
+    - name: Invalidate Cloudfront
+      run: aws cloudfront create-invalidation --distribution-id E307OQSSKM01JQ --paths "/*"
 
         
