@@ -20,6 +20,7 @@ on:
 jobs:
   terraform:
     name: 'Terraform'
+    path: 'terraform/'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
