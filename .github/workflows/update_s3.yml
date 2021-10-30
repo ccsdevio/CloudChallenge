@@ -1,4 +1,4 @@
-name: Update S3 Bucket, Invalidate CloudFront Cache
+name: 'Update S3 Bucket, Invalidate CloudFront Cache'
 
 # See https://dev.to/johnkevinlosito/deploy-static-website-to-s3-using-github-actions-4a0e
 

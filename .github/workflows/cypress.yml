@@ -1,4 +1,5 @@
-name: cypress-run
+name: 'Cypress'
+
 on: pull_request:
   paths: 
   - 's3/**'
