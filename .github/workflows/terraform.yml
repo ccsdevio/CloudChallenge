@@ -21,7 +21,6 @@ on:
 jobs:
   terraform:
     name: 'Terraform'
-    path: 'terraform/'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -48,6 +47,7 @@ jobs:
       # is displayed (see 'uses', next step)
       - name: Terraform Plan
         id: plan
+        path: 'terraform/'
         if: github.event_name == 'pull_request'
         run: terraform plan -no-color
         continue-on-error: true
@@ -84,5 +84,6 @@ jobs:
         run: exit 1
 
       - name: Terraform Apply
+        path: 'terraform/'
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -auto-approve
