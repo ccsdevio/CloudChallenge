@@ -13,6 +13,7 @@ on:
     paths:
       - 'terraform/**'
       - 's3/**'
+      - '.github/workflows'
     branches:
       - main
   pull_request:

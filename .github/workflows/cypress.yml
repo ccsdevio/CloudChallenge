@@ -5,6 +5,7 @@ on:
     paths:
       - 's3/**'
       - 'terraform/**'
+      - '.github/workflows'
 jobs:
   check-bats-version:
     runs-on: ubuntu-20.04
