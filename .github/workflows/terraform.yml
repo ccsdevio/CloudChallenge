@@ -1,10 +1,10 @@
 name: 'Terraform'
 
-# This is taken directly from Hashicorp tutorial at https://learn.hashicorp.com/tutorials/terraform/github-actions. 
-# This runs a plan on any pull request, and runs apply on any push to main. 
-# For pull requests, it also displays results of the setup steps and the plan output. 
+# This is taken directly from Hashicorp tutorial at https://learn.hashicorp.com/tutorials/terraform/github-actions.
+# This runs a plan on any pull request, and runs apply on any push to main.
+# For pull requests, it also displays results of the setup steps and the plan output.
 # It displays these directly in the PR.
-# This workflow runs upon any pushes to folders/files that affect infra: 
+# This workflow runs upon any pushes to folders/files that affect infra:
 # terraform, scripts, and index.html. It runs on all pull requests to highlight
 # any infra is added/changed/destroyed.
 
@@ -19,17 +19,16 @@ on:
 
 jobs:
   terraform:
-    name: "Terraform"
+    name: 'Terraform'
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
-          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}          
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
       - name: Terraform Format
         id: fmt
@@ -43,20 +42,20 @@ jobs:
         id: validate
         run: terraform validate -no-color
 
-  # Runs terraform plan for any pull request. Continues on error so that output 
-  # is displayed (see 'uses', next step)
+      # Runs terraform plan for any pull request. Continues on error so that output
+      # is displayed (see 'uses', next step)
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'pull_request'
         run: terraform plan -no-color
         continue-on-error: true
 
-  # Displays output of terraform plan in pull request
+      # Displays output of terraform plan in pull request
       - uses: actions/github-script@0.9.0
         if: github.event_name == 'pull_request'
         env:
           PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
-        with: 
+        with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const output = 
@@ -79,9 +78,9 @@ jobs:
             })
 
       - name: Terraform Plan Status
-      if: steps.plan.outcome == 'failure'
-      run: exit 1
+        if: steps.plan.outcome == 'failure'
+        run: exit 1
 
       - name: Terraform Apply
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      run: terraform apply -auto-approve
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: terraform apply -auto-approve
