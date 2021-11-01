@@ -209,7 +209,7 @@ resource "aws_api_gateway_integration_response" "options_integration_response" {
         "method.response.header.Access-Control-Allow-Origin" = "'https://manach.dev'"
   }
 
-  // See https://stackoverflow.com/a/60015289/15301692
+// See https://stackoverflow.com/a/60015289/15301692
   response_templates = {
   "application/json" = <<EOF
 $input.json("$")
