@@ -2,7 +2,7 @@ window.addEventListener('load', () => {
   const getData = async () => {
     let dataObj;
     const response = await fetch(
-      'https://jznexkn04k.execute-api.us-east-1.amazonaws.com/dev1/updateitem/',
+      'https://4qwnf11vb6.execute-api.us-east-1.amazonaws.com/prod/api_resource/',
       {
         method: 'POST',
         headers: {
