@@ -252,7 +252,7 @@ resource "aws_api_gateway_integration" "post_integration" {
 
 }
 
-//  POST integration response
+// POST integration response
 resource "aws_api_gateway_integration_response" "post_integration_response" {
   rest_api_id = aws_api_gateway_rest_api.cc_api.id
   resource_id = aws_api_gateway_resource.api_resource.id
