@@ -1,4 +1,4 @@
-name: 'Update S3 Bucket, Invalidate CloudFront Cache'
+name: Update S3 Bucket, Invalidate CloudFront Cache, Run Cypress
 
 # See https://dev.to/johnkevinlosito/deploy-static-website-to-s3-using-github-actions-4a0e
 
@@ -8,7 +8,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  deployS3AndInvalidateCloudfront:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,3 +26,26 @@ jobs:
 
       - name: Invalidate Cloudfront
         run: aws cloudfront create-invalidation --distribution-id E307OQSSKM01JQ --paths "/*"
+
+  wait5Minutes:
+    defaults:
+      run: 
+        shell: bash
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait 5 minutes so Invalidate has time to propagate
+        run: sleep 300
+
+  runCypress:
+    name: Run Cypress
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: run Cypress
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          headless: true
+          
