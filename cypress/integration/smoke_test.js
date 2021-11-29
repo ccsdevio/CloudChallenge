@@ -23,7 +23,7 @@ describe('Smoke test', () => {
         let number = parseInt(text.match(pattern));
         cy.request(
           'POST',
-          'https://jznexkn04k.execute-api.us-east-1.amazonaws.com/dev1/updateitem/'
+          'https://xsieizqesa.execute-api.us-east-1.amazonaws.com/prod/api_resource'
         ).then((response) => {
           expect(response.body.body.Attributes.currentCount).to.eq(number + 1);
         });
