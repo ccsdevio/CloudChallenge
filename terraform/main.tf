@@ -3,7 +3,7 @@ terraform {
   backend "remote" {
     organization = "ccsdev"
     workspaces {
-      name = "Example-Workspace"
+      name = "CloudChallenge"
     }
   }
   required_providers {
