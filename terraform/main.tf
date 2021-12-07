@@ -12,7 +12,6 @@ terraform {
       version = ">= 3.63.0"
     }
   }
-
   required_version = ">= 1.0.9"
 }
 
@@ -45,21 +44,17 @@ resource "aws_iam_role_policy" "cc_lambda_policy" {
 // IAM role for lambda
 resource "aws_iam_role" "cc_role" {
   name = "CCrole"
-
   assume_role_policy = file("lambda_assume_role_policy.json")
-
 }
 
 // Create the lambda
 resource "aws_lambda_function" "cloud_challenge_lambda" {
-
   function_name    = "CloudChallengeLambda"
   filename         = "lambda_payload.zip"
   role             = aws_iam_role.cc_role.arn
   handler          = "lambda_function.lambda_handler"
   runtime          = "python3.9"
   source_code_hash = filebase64sha256("lambda_payload.zip")
-
 }
 
 // This begins the section on the REST API Gateway. First we'll set global API Gateway settings (see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_account)
@@ -69,7 +64,6 @@ resource "aws_api_gateway_account" "global_api_account" {
 
 resource "aws_iam_role" "cloudwatch_role" {
   name = "api_gateway_cloudwatch_global_role"
-
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -90,7 +84,6 @@ EOF
 resource "aws_iam_role_policy" "cloudwatch_policy" {
   name = "api_gateway_cloudwatch_global_policy"
   role = aws_iam_role.cloudwatch_role.id
-
   policy = <<EOF
 {
     "Version": "2012-10-17",
@@ -116,7 +109,6 @@ EOF
 // Now we'll set the specific API
 resource "aws_api_gateway_rest_api" "cc_api" {
   name = "CloudChallengeAPI"
-
 }
 
 // Now the API resource
@@ -124,7 +116,6 @@ resource "aws_api_gateway_resource" "api_resource" {
   rest_api_id = aws_api_gateway_rest_api.cc_api.id
   parent_id   = aws_api_gateway_rest_api.cc_api.root_resource_id
   path_part   = "api_resource"
-
 }
 
 // Then the POST method
@@ -133,7 +124,6 @@ resource "aws_api_gateway_method" "post_method" {
   resource_id   = aws_api_gateway_resource.api_resource.id
   http_method   = "POST"
   authorization = "NONE"
-
 }
 
 //Then the OPTIONS method
@@ -142,7 +132,6 @@ resource "aws_api_gateway_method" "options_method" {
   resource_id   = aws_api_gateway_resource.api_resource.id
   http_method   = "OPTIONS"
   authorization = "NONE"
-
 }
 
 resource "aws_api_gateway_integration" "options_integration" {
@@ -228,9 +217,11 @@ resource "aws_api_gateway_method_response" "post_method_response" {
   response_models = {
     "application/json" = "Empty"
   }
+
   response_parameters = {
     "method.response.header.Access-Control-Allow-Origin" = true
   }
+
   depends_on = [aws_api_gateway_method.post_method]
 }
 
@@ -239,7 +230,6 @@ resource "aws_api_gateway_integration" "post_integration" {
   rest_api_id = aws_api_gateway_rest_api.cc_api.id
   resource_id = aws_api_gateway_resource.api_resource.id
   http_method = aws_api_gateway_method.post_method.http_method
-
   integration_http_method = "POST"
   type                    = "AWS"
   uri                     = aws_lambda_function.cloud_challenge_lambda.invoke_arn
@@ -276,14 +266,12 @@ resource "aws_lambda_permission" "allow_apigw" {
   function_name = aws_lambda_function.cloud_challenge_lambda.function_name
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_api_gateway_rest_api.cc_api.execution_arn}/*/*/*"
-
 }
 
 
 // Next is the stage
 resource "aws_api_gateway_stage" "prod_stage" {
   depends_on = [aws_cloudwatch_log_group.prod_logs]
-
   stage_name    = var.stage_name
   deployment_id = aws_api_gateway_deployment.apideploy.id
   rest_api_id   = aws_api_gateway_rest_api.cc_api.id
@@ -299,7 +287,6 @@ resource "aws_api_gateway_method_settings" "post_settings" {
   rest_api_id = aws_api_gateway_rest_api.cc_api.id
   stage_name  = aws_api_gateway_stage.prod_stage.stage_name
   method_path = "*/*"
-
   settings {
     data_trace_enabled     = false
     metrics_enabled        = false
@@ -312,7 +299,6 @@ resource "aws_api_gateway_method_settings" "post_settings" {
 // Now we deploy the api, with a redeploy rule in case things change in the future
 resource "aws_api_gateway_deployment" "apideploy" {
   depends_on = [aws_api_gateway_integration.post_integration]
-
   rest_api_id = aws_api_gateway_rest_api.cc_api.id
   stage_name  = ""
 
