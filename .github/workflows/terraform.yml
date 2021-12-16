@@ -1,6 +1,7 @@
 name: 'Terraform and test'
 on: 
   pull_request:
+  push:
     paths: 
       - 'terraform/**'
 jobs: 

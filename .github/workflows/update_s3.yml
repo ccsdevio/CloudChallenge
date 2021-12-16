@@ -6,7 +6,6 @@ on:
   pull_request:
     paths:
       - 's3/**'
-      - 'terraform/lambda_payload.zip'
 
 jobs:
   
@@ -24,6 +23,7 @@ jobs:
           headless: true
 
   deployS3AndInvalidateCloudfront:
+    needs: runCypress
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -43,6 +43,7 @@ jobs:
         run: aws cloudfront create-invalidation --distribution-id E307OQSSKM01JQ --paths "/*"
 
   wait5Minutes:
+    needs: [runCypress, deployS3AndInvalidateCloudfront]
     defaults:
       run: 
         shell: bash
@@ -52,7 +53,8 @@ jobs:
         run: sleep 300
 
   runCypress2:
-    name: Run Cypress again on existing site 
+    needs: [runCypress, deployS3AndInvalidateCloudfront, wait5Minutes]
+    name: Run Cypress again on running site 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

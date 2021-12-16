@@ -4,7 +4,6 @@ on:
   push: 
   pull_request:
     paths:
-      - 's3/**'
       - 'terraform/**'
       - '.github/workflows'
 jobs:
