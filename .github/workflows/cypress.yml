@@ -1,6 +1,7 @@
 name: 'Cypress'
 
 on:
+  push: 
   pull_request:
     paths:
       - 's3/**'
