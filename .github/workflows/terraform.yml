@@ -1,6 +1,8 @@
 name: 'Terraform and test'
 on: 
   pull_request:
+    paths: 
+      - 'terraform/**'
   push:
     paths: 
       - 'terraform/**'
@@ -82,6 +84,7 @@ jobs:
 
 
   wait5Minutes:
+    needs: terraformPlanAndApply
     defaults:
       run: 
         shell: bash
@@ -91,6 +94,7 @@ jobs:
         run: sleep 300
 
   runCypress:
+    needs: [terraformPlanAndApply, wait5Minutes]
     name: Run Cypress
     runs-on: ubuntu-latest
     steps:
