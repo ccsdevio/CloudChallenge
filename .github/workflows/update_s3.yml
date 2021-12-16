@@ -51,8 +51,8 @@ jobs:
       - name: Wait 5 minutes so Invalidate has time to propagate
         run: sleep 300
 
-  runCypress:
-    name: Run Cypress
+  runCypress2:
+    name: Run Cypress again on existing site 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -60,6 +60,8 @@ jobs:
 
       - name: run Cypress
         uses: cypress-io/github-action@v2
+        env: 
+          CYPRESS_baseUrl: https://ccsportfolio.com
         with:
           browser: chrome
           headless: true
