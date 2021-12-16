@@ -312,8 +312,8 @@ resource "aws_api_gateway_deployment" "apideploy" {
   }
 }
 
-
-
 output "base_url" {
   value = aws_api_gateway_deployment.apideploy.invoke_url
 }
+
+// Change for github actions testing purposes

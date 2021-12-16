@@ -3,9 +3,7 @@ name: 'Cypress'
 on:
   push: 
   pull_request:
-    paths:
-      - 'terraform/**'
-      - '.github/workflows'
+    
 jobs:
   cypress:
     runs-on: ubuntu-20.04
