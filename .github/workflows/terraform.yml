@@ -83,7 +83,7 @@ jobs:
         run: terraform apply -auto-approve
 
   runCypress:
-    needs: [terraformPlanAndApply, wait5Minutes]
+    needs: terraformPlanAndApply
     name: Run Cypress
     runs-on: ubuntu-latest
     steps:
