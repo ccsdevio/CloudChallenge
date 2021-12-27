@@ -1,8 +1,9 @@
 name: 'Cypress'
 
 on:
-  push: 
-  pull_request:
+  push:
+    paths-ignore:
+      - 'terraform/**'
     
 jobs:
   cypress:
@@ -10,6 +11,32 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          headless: true
+
+  wait5Minutes:
+    needs: [runCypress, deployS3AndInvalidateCloudfront]
+    defaults:
+      run: 
+        shell: bash
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait 5 minutes so Invalidate has time to propagate
+        run: sleep 300
+
+  runCypress2:
+    needs: [runCypress, deployS3AndInvalidateCloudfront, wait5Minutes]
+    name: Run Cypress again on running site 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: run Cypress
+        uses: cypress-io/github-action@v2
+        env: 
+          CYPRESS_baseUrl: https://ccsportfolio.com
         with:
           browser: chrome
           headless: true
