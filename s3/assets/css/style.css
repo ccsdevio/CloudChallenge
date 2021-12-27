@@ -1,0 +1,46 @@
+body {
+  font-family: 'Raleway', serif;
+  font-size: 1em;
+  line-height: 1.6;
+  /* margin: 0; */
+}
+
+.resume-page {
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 0.75in 1in 0.5in 1in;
+  width: 8.5in;
+  height: 11in;
+  background-color: white;
+  box-shadow: 0 3px 8px -3px rgba(0, 0, 0, 0.7);
+}
+
+.big-blue-line {
+  display: flex;
+  align-items: center;
+  height: 0.325in;
+  width: 6.5in;
+  background-color: hsla(229, 100%, 66%, 56%);
+  margin: -33px 0 30px 0;
+}
+
+.name-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  height: 30px;
+  letter-spacing: 10px;
+  margin: 0, 0, 0, 0;
+  font-weight: normal;
+}
+
+.section-heading {
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: 7px;
+}
+
+strong {
+  font-weight: 900;
+}
