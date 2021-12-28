@@ -39,8 +39,6 @@ jobs:
 
       - name: run Cypress
         uses: cypress-io/github-action@v2
-        env: 
-          CYPRESS_baseUrl: https://ccsportfolio.com
         with:
           browser: chrome
           headless: true
