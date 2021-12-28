@@ -3,7 +3,7 @@ name: Update S3 Bucket, Invalidate CloudFront Cache, Run Cypress
 # See https://dev.to/johnkevinlosito/deploy-static-website-to-s3-using-github-actions-4a0e
 
 on:
-  pull_request:
+  push:
     paths:
       - 's3/**'
 
