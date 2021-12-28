@@ -16,7 +16,7 @@ jobs:
           headless: true
 
   wait5Minutes:
-    needs: [runCypress, deployS3AndInvalidateCloudfront]
+    needs: [cypress]
     defaults:
       run: 
         shell: bash
@@ -26,7 +26,7 @@ jobs:
         run: sleep 300
 
   runCypress2:
-    needs: [runCypress, deployS3AndInvalidateCloudfront, wait5Minutes]
+    needs: [cypress, wait5Minutes]
     name: Run Cypress again on running site 
     runs-on: ubuntu-latest
     steps:
