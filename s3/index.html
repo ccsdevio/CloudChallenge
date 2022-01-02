@@ -63,18 +63,17 @@
         </div>
       </div>
       <h2 class="section-heading">PORTFOLIO</h2>
-      <div class="project-name">Memeslingers</div>
+      <div class="project-name">AWS Circuit Breaker</div>
       <div class="project-description">
         <ul>
-          <li>Using event-driven architecture on AWS with CI/CD and IaC, built a website to contact a network of people willing to confront Reply Guys on Twitter:</li>
+          <li>Built an app to help prevent unexpected AWS bills: AWS Circuit Breaker uses Honeycomb to monitor a site, and when a potentially expensive traffic pattern is detected, automatically disables access.</li>
           <ul>
-            <li>EventBridge as the central event bus</li>
-            <li>Step Functions to handle timers</li>
-            <li>Lambdas for handling logic flow, writing to and reading from DynamoDB</li>
-            <li>Auth0 to handle user access to API Gateway and to combat abuse</li>
-            <li>Infrastructure defined and maintained in Terraform</li>
-            <li>Every pull request triggers end-to-end localhost tests in Cypress</li>
-            <li>Every push to main triggers a Terraform run and another Cypress run on the actual website to verify correct functioning</li>
+            <li>Honeycomb to check traffic every five minutes and fire the circuit-breaker event based on a user-supplied query</li>
+            <li>API Gatewawy to serve endpoint for Honeycomb webhook</li>
+            <li>Lambda to call the CodeBuild run</li>
+            <li>Terraform to define the infrastructure to be imported and destroyed</li>
+            <li>CodeBuild to run the Terraform job/li>
+            <li>EventBridge and Cypress to run a daily test to ensure the circuit breaker is still working, and alert the user upon failure</li>
           </ul>
         </ul>
       </div>  
