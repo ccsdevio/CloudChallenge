@@ -1,5 +1,5 @@
 body {
-  font-family: 'Raleway', serif;
+  font-family: "Raleway", serif;
   font-size: 1em;
   line-height: 1.6;
   padding-top: 20px;
@@ -17,12 +17,10 @@ body {
 }
 
 .big-blue-line {
-  display: flex;
-  align-items: center;
   height: 0.325in;
   width: 6.5in;
   background-color: hsla(229, 100%, 66%, 56%);
-  margin: -33px 0 30px 0;
+  margin: -33px auto 30px auto;
 }
 
 .name-box {
