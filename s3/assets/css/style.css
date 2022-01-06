@@ -34,20 +34,6 @@ body {
   font-weight: normal;
 }
 
-<<<<<<< HEAD
-.contact-text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  width: 60%;
-  padding-top: 5px;
-  padding-bottom: 10px;
-  font-size: 14px;
-}
-
-=======
->>>>>>> parent of d92af8c... First pass at implementing Taylor's suggestions
 .am-ed-section-heading {
   font-weight: 900;
   font-size: 20px;
