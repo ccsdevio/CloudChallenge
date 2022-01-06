@@ -6,7 +6,7 @@ body {
   margin: 0;
 }
 
-.resume-page-1 {
+.resume-page {
   margin: 0 auto;
   box-sizing: border-box;
   padding: 0.5in 1in 0 1in;
@@ -16,21 +16,11 @@ body {
   box-shadow: 0 3px 8px -3px rgba(0, 0, 0, 0.7);
 }
 
-.resume-page-2 {
-  margin: 0 auto;
-  box-sizing: border-box;
-  padding: 0.5in 1in 0 1in;
-  width: 8.5in;
-  height: auto;
-  background-color: white;
-  box-shadow: 0 3px 8px -3px rgba(0, 0, 0, 0.7);
-}
-
 .big-blue-line {
   height: 0.325in;
   width: 6.5in;
   background-color: hsla(229, 100%, 66%, 56%);
-  margin: -33px auto 0 auto;
+  margin: -33px auto 30px auto;
 }
 
 .name-box {
@@ -44,6 +34,7 @@ body {
   font-weight: normal;
 }
 
+<<<<<<< HEAD
 .contact-text {
   display: flex;
   align-items: center;
@@ -55,6 +46,8 @@ body {
   font-size: 14px;
 }
 
+=======
+>>>>>>> parent of d92af8c... First pass at implementing Taylor's suggestions
 .am-ed-section-heading {
   font-weight: 900;
   font-size: 20px;
@@ -66,7 +59,7 @@ body {
   display: grid;
   grid-template-columns: 60% 5px 1fr;
   grid-template-rows: 1fr;
-  height: 3in;
+  height: 2.5in;
   letter-spacing: 2px;
   line-height: 1.4;
 }
@@ -74,27 +67,18 @@ body {
 .about-me-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.25in auto auto;
-  padding-right: 10px;
-}
-
-.am-ed-portfolio-separator {
-  height: 0.2in;
-}
-
-.about-me-text {
-  padding-bottom: 10px;
+  grid-template-rows: 0.25in 1fr 1fr;
+  padding-right: 21px;
 }
 
 .am-ed-heading {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 10px;
 }
 
 .am-ed-separator {
-  height: 3.15in;
+  height: 2.5in;
   width: 5px;
   background-color: hsla(229, 100%, 66%, 56%);
   border-radius: 20px;
@@ -104,7 +88,7 @@ body {
 .education-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.25in 1.25in 1fr;
+  grid-template-rows: 0.25in 1fr 1fr;
   padding-left: 12px;
   padding-right: 25px;
 }
@@ -174,7 +158,7 @@ body {
 .page-footer {
   padding-top: 15px;
   display: grid;
-  grid-template-rows: 5px 40px 1fr;
+  grid-template-rows: 5px 20px 1fr;
 }
 
 .page-footer-separator {
@@ -188,11 +172,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
-  width: 80%;
-  padding-top: 5px;
-  padding-bottom: 20px;
-  font-size: 14px;
+  padding-top: 15px;
+  font-size: 12px;
 }
 
 .restaurant-experience-container {
