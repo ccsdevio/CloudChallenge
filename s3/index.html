@@ -34,16 +34,27 @@
     <div class="resume-page">
       <h1 class="name-box">CHRIS SCOTT</h1>
       <div class="big-blue-line"></div>
+      <div class="reach-me">chris at ccsdev io</div>
       <div class="about-me-and-education-container">
         <div class="about-me-container">
           <div class="am-ed-heading">
             <h2 class="am-ed-section-heading"><strong>ABOUT ME</strong></h2>
           </div>
           <div class="about-me-text">
-            <p>Projects built using AWS technologies with serverless architecture, CI/CD, IaC, and automated testing.</p>
+            <p>Projects built using AWS and CI/CD:</p>
+            <ul>
+              <li>Eventbridge, SNS, Lambda, DynamoDB, API Gateway, CodeBuild, S3, CloudWatch</li>
+              <li>CI/CD with GitHub actions</li>
+              <li>Automated testing with Cypress</li>
+              <li>IaC with Terraform</li>
+            </ul>
           </div>
           <div class="about-me-text">
-            <p>Customer service expert with more than a decade of experience working and training teams in high-stress environments with high-value clients.</p>
+            <p>Customer service expert:</p>
+            <ul>
+              <li>Worked at Michelin-starred and James-Beard-award-winning restaurants</li>
+              <li>13 years' experience in fine dining</li>
+            </ul>
           </div>
         </div>
         <div class="am-ed-separator"></div>
@@ -63,15 +74,15 @@
         </div>
       </div>
       <h2 class="section-heading">PORTFOLIO</h2>
-      <div class="project-name">AWS Circuit Breaker</div>
+      <div class="project-name">StormAlert</div>
       <div class="project-description">
         <ul>
-          <li>Built an app to help prevent unexpected AWS bills: AWS Circuit Breaker uses Honeycomb to monitor a site, and when a potentially expensive traffic pattern is detected, automatically disables access:</li>
+          <li>Built an IaC stack to help prevent unexpected AWS bills for learners: destroys unauthorized EC2s and Lambdas and performs automatic mitigation, and disconnects public access when spikes in traffic are detected</li>
           <ul>
-            <li>Config and SNS to monitor for unauthorized activity</li>
-            <li>PagerDuty integration to alert users</li>
+            <li>EventBridge to monitor for unauthorized activity</li>
+            <li>CodeBuild (in a separate account) to run mitigation steps</li>
+            <li>SNS and PagerDuty integration to alert users</li>
             <li>CloudWatch alarms, Lambda, CodeBuild and Terraform to disable public access when spikes in traffic are detected</li>
-            <li>Google Cloud Scheduler and Cypress to run a daily test to ensure the monitoring is still functioning, and alert the user upon failure</li>
           </ul>
         </ul>
       </div>  
@@ -91,7 +102,7 @@
       </div>  
       <div class="page-footer">
         <div class="page-footer-separator"></div>
-        <div class="page-footer-text">chris at ccsdev io</div>
+        
         <div id="counter">Querying database...</div>
       </div>
     </div>
@@ -127,8 +138,7 @@
         <div class="job-location">Austin, TX</div>
         <ul class="job-description">
           <li>0% turnover for well over a year</li>
-          <li>Mentored and trained an assistant manager</li>
-          <li>Interviewed, hired and trained new employees</li>
+          <li>Created new systems to fix longstanding service issues</li>
         </ul>
       </div>
       <div class="employer-entry">
@@ -138,7 +148,6 @@
         <div class="job-location">Austin, TX</div>
         <ul class="job-description">
           <li>Won a child custody battle that ensured a six-year-old boy would remain with the only family he’d ever known</li>
-          <li>Provided expert legal counsel to clients</li>
         </ul>
       </div>
       <div class="employer-entry">
@@ -147,22 +156,19 @@
         <div class="position">Associate</div>
         <div class="job-location">Austin, TX</div>
         <ul class="job-description">
-          <li>Represented clients in various family law matters</li>
           <li>Researched and helped craft arguments for ongoing cases</li>
         </ul>
       </div>
       <h2 class="section-heading">OTHER RESTAURANT EXPERIENCE</h2>
       <div class="restaurant-experience-container">
-        <div class="restaurant-positions">Captain, Trainer, Bartender, Server</div>
-        <div class="restaurant-job-locations">Austin, TX</div>
-        <ul class="restaurant-job-descriptions">
+        <div class="restaurant-experience-positions">Captain, Trainer, Bartender, Server</div>
+        <div class="restaurant-experience-job-locations">NYC, NY; Austin, TX</div>
+        <ul class="restaurant-experience-description">
           <li>Helped open restaurants, wrote training manuals, trained staff</li>
           <li>Go-to server for VIPs and reviewers; handled meals that became
             review articles in New York Magazine, Texas Monthly, and the
             Austin-American Statesman</li>
-            <li>Former employers include Dovetail NYC (Michelin star), Gotham Bar
-              and Grill (Michelin star, James Beard award for Best Restaurant in
-              America), La Condesa, Zoot, and Jeffrey’s</li>
+          <li>Former employers include Dovetail NYC (Michelin star), Gotham Bar and Grill (Michelin star, James Beard award for Best Restaurant in America), La Condesa, Zoot, and Jeffrey’s</li>
           </ul>
         </ul>  
       </div>   
