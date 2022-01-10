@@ -1,8 +1,8 @@
 body {
-  font-family: 'Raleway', serif;
+  font-family: "Raleway", serif;
   font-size: 1em;
   line-height: 1.6;
-  padding-top: 20px;
+  padding-top: 10px;
   margin: 0;
 }
 
@@ -17,12 +17,10 @@ body {
 }
 
 .big-blue-line {
-  display: flex;
-  align-items: center;
   height: 0.325in;
   width: 6.5in;
   background-color: hsla(229, 100%, 66%, 56%);
-  margin: -33px 0 30px 0;
+  margin: -33px auto 30px auto;
 }
 
 .name-box {
@@ -36,6 +34,18 @@ body {
   font-weight: normal;
 }
 
+.reach-me {
+  font-size: 16px;
+  /* margin: -33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 45px; */
+  margin: -33px auto 0 auto;
+  padding: 0.8rem 2.5in 25px;
+  width: 35%;
+}
+
 .am-ed-section-heading {
   font-weight: 900;
   font-size: 20px;
@@ -43,13 +53,13 @@ body {
 }
 
 .about-me-and-education-container {
-  padding-top: 10px;
+  padding-top: 0px;
   display: grid;
   grid-template-columns: 60% 5px 1fr;
   grid-template-rows: 1fr;
-  height: 2.5in;
+  height: 3.4in;
   letter-spacing: 2px;
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
 .about-me-container {
@@ -59,6 +69,10 @@ body {
   padding-right: 21px;
 }
 
+.about-me-text {
+  padding-top: 10px;
+}
+
 .am-ed-heading {
   display: flex;
   align-items: center;
@@ -66,7 +80,7 @@ body {
 }
 
 .am-ed-separator {
-  height: 2.5in;
+  height: 3.5in;
   width: 5px;
   background-color: hsla(229, 100%, 66%, 56%);
   border-radius: 20px;
@@ -77,12 +91,17 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 0.25in 1fr 1fr;
-  padding-left: 12px;
+  padding-left: 20px;
   padding-right: 25px;
 }
 
+.education-text {
+  padding-top: 10px;
+}
+
 .section-heading {
-  padding-top: 0.3in;
+  padding-top: 0.2in;
+  padding-bottom: 0.1in;
   font-size: 26px;
   letter-spacing: 7px;
   margin: 0;
@@ -105,7 +124,7 @@ body {
 .employer-entry {
   display: grid;
   grid-template-columns: 80% 1fr;
-  grid-template-rows: 20px 20px 1fr;
+  grid-template-rows: 1.5rem 1.5rem 1fr;
   line-height: 1.6;
   margin: 0;
   padding-bottom: 10px;
@@ -159,14 +178,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 15px;
-  font-size: 12px;
+  padding-top: 1.5rem;
 }
 
 .restaurant-experience-container {
   display: grid;
-  grid-template-columns: 80% 1fr;
-  grid-template-rows: 20px 1fr;
+  grid-template-columns: 70% 1fr;
+  grid-template-rows: 1.5rem 1fr;
   line-height: 1.4;
   margin: 0;
   padding-bottom: 10px;
@@ -186,6 +204,22 @@ body {
 
 .restaurant-job-descriptions {
   grid-area: 2 / 1 / 3 / 2;
+}
+
+.restaurant-experience-positions {
+  grid-area: 1 / 1 / 2 / 2;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.restaurant-experience-job-locations {
+  grid-area: 1 / 2 / 2 / 3;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.restaurant-experience-description {
+  grid-area: 2 / 1 / 3 / 3;
 }
 
 #counter {
