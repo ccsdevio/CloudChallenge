@@ -233,7 +233,7 @@ resource "aws_api_gateway_integration" "post_integration" {
   integration_http_method = "POST"
   type                    = "AWS"
   uri                     = aws_lambda_function.cloud_challenge_lambda.invoke_arn
-
+  depends_on = [aws_lambda_function.cloud_challenge_lambda]
 }
 
 //  POST integration response
