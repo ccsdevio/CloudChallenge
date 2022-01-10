@@ -16,11 +16,12 @@ describe("Smoke test", () => {
 
   // 3. POST works, lambda increments DB by 1
   it("Verifies that POST call to API works as intended, and lambda increments DB by 1", () => {
+    let number;
     cy.get('[id="counter"]')
       .invoke("text")
       .then((text) => {
         let pattern = /[0-9]+/;
-        let number = parseInt(text.match(pattern));
+        number = parseInt(text.match(pattern));
         return cy.request(
           "POST",
           "https://xsieizqesa.execute-api.us-east-1.amazonaws.com/prod/api_resource"
