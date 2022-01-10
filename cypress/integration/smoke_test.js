@@ -7,11 +7,13 @@ describe('Smoke test', () => {
   it('Visits my portfolio page and verifies that the API call is working', () => {
     // 1. Status code 200
     cy.visit('https://ccsportfolio.com');
+    //TODO: expect
   });
 
   // 2. Text switches upon POST response
   it('Verifies that the text in counter changes upon POST response', () => {
     cy.contains('This document has been viewed');
+    //TODO: expect
   });
 
   // 3. POST works, lambda increments DB by 1
