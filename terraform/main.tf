@@ -6,6 +6,7 @@ terraform {
       name = "CloudChallenge"
     }
   }
+  
   required_providers {
     aws = {
       source  = "hashicorp/aws"
