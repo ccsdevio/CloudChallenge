@@ -95,29 +95,4 @@ jobs:
         with:
           browser: chrome
           headless: true
-
-  wait5Minutes:
-    needs: [terraformPlanAndApply, runCypress]
-    defaults:
-      run: 
-        shell: bash
-    runs-on: ubuntu-latest
-    steps:
-      - name: Wait 5 minutes so terraform has time to finish
-        run: sleep 300
-
-  runCypress2:
-    needs: [terraformPlanAndApply, runCypress, wait5Minutes]
-    name: Run Cypress
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: run Cypress
-        uses: cypress-io/github-action@v2
-        env: 
-          CYPRESS_baseUrl: https://ccsportfolio.com
-        with:
-          browser: chrome
-          headless: true
+          

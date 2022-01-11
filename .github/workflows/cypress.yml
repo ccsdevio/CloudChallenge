@@ -18,27 +18,3 @@ jobs:
         with:
           browser: chrome
           headless: true
-
-  wait5Minutes:
-    needs: [cypress]
-    defaults:
-      run: 
-        shell: bash
-    runs-on: ubuntu-latest
-    steps:
-      - name: Wait 5 minutes so Invalidate has time to propagate
-        run: sleep 300
-
-  runCypress2:
-    needs: [cypress, wait5Minutes]
-    name: Run Cypress again on running site 
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: run Cypress
-        uses: cypress-io/github-action@v2
-        with:
-          browser: chrome
-          headless: true
