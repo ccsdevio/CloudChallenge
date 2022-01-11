@@ -6,7 +6,7 @@ terraform {
       name = "CloudChallenge"
     }
   }
-  
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -318,3 +318,6 @@ output "base_url" {
 }
 
 // Change for github actions testing purposes
+resource "aws_cloudwatch_log_group" "test" {
+  name = "test"
+}
