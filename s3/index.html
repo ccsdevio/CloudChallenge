@@ -77,12 +77,12 @@
       <div class="project-name">StormAlert</div>
       <div class="project-description">
         <ul>
-          <li>Built an IaC stack to help prevent unexpected AWS bills for learners: destroys unauthorized EC2s and Lambdas and performs automatic mitigation, and disconnects public access when spikes in traffic are detected</li>
+          <li>Built an AWS stack to help prevent unexpected bills: destroys unauthorized EC2s and Lambdas and performs automatic mitigation, and disconnects public access when spikes in traffic are detected</li>
           <ul>
             <li>EventBridge to monitor for unauthorized activity</li>
-            <li>CodeBuild (in a separate account) to run mitigation steps</li>
+            <li>Lambda and DynamoDB to coordinate mitigation steps</li>
             <li>SNS and PagerDuty integration to alert users</li>
-            <li>CloudWatch alarms, Lambda, CodeBuild and Terraform to disable public access when spikes in traffic are detected</li>
+            <li>CloudWatch alarms and Lambda to disable public access when spikes in traffic are detected</li>
           </ul>
         </ul>
       </div>  
