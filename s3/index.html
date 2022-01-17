@@ -43,7 +43,7 @@
           <div class="about-me-text">
             <p>Projects built using AWS and CI/CD:</p>
             <ul>
-              <li>Eventbridge, SNS, Lambda, DynamoDB, API Gateway, CodeBuild, S3, CloudWatch</li>
+              <li>Eventbridge, Config, SNS, Lambda, DynamoDB, API Gateway, S3, CloudWatch</li>
               <li>CI/CD with GitHub actions</li>
               <li>Automated testing with Cypress</li>
               <li>IaC with Terraform</li>
@@ -74,12 +74,12 @@
         </div>
       </div>
       <h2 class="section-heading">PORTFOLIO</h2>
-      <div class="project-name">StormAlert</div>
+      <div class="project-name">SaferAWS</div>
       <div class="project-description">
         <ul>
           <li>Built an AWS stack to help prevent unexpected bills: destroys unauthorized EC2s and Lambdas and performs automatic mitigation, and disconnects public access when spikes in traffic are detected</li>
           <ul>
-            <li>EventBridge to monitor for unauthorized activity</li>
+            <li>EventBridge and Config to monitor for unauthorized activity</li>
             <li>Lambda and DynamoDB to coordinate mitigation steps</li>
             <li>SNS and PagerDuty integration to alert users</li>
             <li>CloudWatch alarms and Lambda to disable public access when spikes in traffic are detected</li>
