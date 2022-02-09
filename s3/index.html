@@ -74,35 +74,40 @@
         </div>
       </div>
       <h2 class="section-heading">PORTFOLIO</h2>
-      <div class="project-name">SaferAWS</div>
-      <div class="project-description">
-        <ul>
-          <li>Built an AWS stack to help prevent unexpected bills: destroys unauthorized EC2s and Lambdas and performs automatic mitigation, and disconnects public access when spikes in traffic are detected</li>
+      <div class="project-container">
+        <div class="project-name">Forrest Brazeal's Cloud Challenge</div>
+        <div class="project-url">ccsportfolio.com</div>
+        <div class="project-description">  
           <ul>
-            <li>EventBridge and Config to monitor for unauthorized activity</li>
-            <li>Lambda and DynamoDB to coordinate mitigation steps</li>
-            <li>SNS and PagerDuty integration to alert users</li>
-            <li>CloudWatch alarms and Lambda to disable public access when spikes in traffic are detected</li>
+            <li>Built this résumé webpage and view counter using AWS, IaC, and CI/CD:</li>
+            <ul>
+              <li>Edge content delivery and HTTPS using Cloudfront</li>
+              <li>Content served from S3 bucket</li>
+              <li>API Gateway, Lambda, and DynamoDB to implement a visitor count</li>
+              <li>CI/CD with GitHub Actions</li>
+              <li>IaC with Terraform</li>
+              <li>Automated testing with Cypress</li>
+            </ul>
           </ul>
-        </ul>
-      </div>  
-      <div class="project-name">Forrest Brazeal's Cloud Challenge</div>
-      <div class="project-description">  
-        <ul>
-          <li>Built this résumé webpage and view counter using AWS, IaC, and CI/CD:</li>
+        </div>  
+      </div>
+      <div class="project-container">
+        <div class="project-name">Ported Résumé Site to Go/Docker/EC2</div>
+        <div class="project-url">manach.dev</div>
+        <div class="project-description">  
           <ul>
-            <li>Edge content delivery and HTTPS using Cloudfront</li>
-            <li>Content served from S3 bucket</li>
-            <li>API Gateway, Lambda, and DynamoDB to implement a visitor count</li>
-            <li>CI/CD with GitHub Actions</li>
-            <li>IaC with Terraform</li>
-            <li>Automated testing with Cypress</li>
+            <li>After completing Forrest Brazeal's Cloud Challenge (see below), wrote a custom Go server and deployed the site on EC2 using Docker</li>
+            <ul>
+              <li>Lightweight server and data persistence for visitor counter using Go</li>
+              <li>Containerization using Docker</li>
+              <li>TLS and CDN through CloudFront</li>
+              <li>Proxying through an AWS Elastic Load Balancer</li>
+            </ul>
           </ul>
-        </ul>
-      </div>  
+        </div>  
+      </div>
       <div class="page-footer">
         <div class="page-footer-separator"></div>
-        
         <div id="counter">Querying database...</div>
       </div>
     </div>
@@ -110,6 +115,21 @@
     <div class="page-spacer"></div>
     
     <div class="resume-page">
+      <div class="project-container">
+        <div class="project-name">SaferAWS</div>
+        <div class="project-url">github.com/ccsdevio/saferAWS</div>
+        <div class="project-description">
+          <ul>
+            <li>Built an AWS stack to help prevent unexpected bills: destroys unauthorized EC2s and Lambdas and performs automatic mitigation, and disconnects public access when spikes in traffic are detected</li>
+            <ul>
+              <li>EventBridge and Config to monitor for unauthorized activity</li>
+              <li>Lambda and DynamoDB to coordinate mitigation steps</li>
+              <li>SNS and PagerDuty integration to alert users</li>
+              <li>CloudWatch alarms and Lambda to disable public access when spikes in traffic are detected</li>
+            </ul>
+          </ul>
+        </div>  
+      </div>
       <h2 class="section-heading">EXPERIENCE</h2>
       <div class="employer-entry">
         <div class="employer">Michael Scott, MD, and Ellen Marciniak, MD</div>
@@ -165,9 +185,6 @@
         <div class="restaurant-experience-job-locations">NYC, NY; Austin, TX</div>
         <ul class="restaurant-experience-description">
           <li>Helped open restaurants, wrote training manuals, trained staff</li>
-          <li>Go-to server for VIPs and reviewers; handled meals that became
-            review articles in New York Magazine, Texas Monthly, and the
-            Austin-American Statesman</li>
           <li>Former employers include Dovetail NYC (Michelin star), Gotham Bar and Grill (Michelin star, James Beard award for Best Restaurant in America), La Condesa, Zoot, and Jeffrey’s</li>
           </ul>
         </ul>  
